@@ -1,0 +1,86 @@
+
+#include <iostream>
+using namespace std;
+double balance=1000;
+int withdraw=0;
+int deposit=0;
+int password=1234;
+int choice=0;
+
+void show()
+{
+    cout<<"MENU"<<endl;
+    cout<<"1:balance"<<endl;
+    cout<<"2:withdraw"<<endl;
+    cout<<"3:deposit"<<endl;
+    cout<<"4:Exit"<<endl;
+    
+}
+void process()
+{
+    cout<<"enter your password :";
+    cin>>password;
+    do{
+    if(password==0000)
+    {
+        cout<<"enter your choice :";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1:
+            cout<<"your balance is "<<balance<<endl;
+            break;
+            
+            case 2:
+            cout<<"Note: your balance is "<<balance<<endl;
+            cout<<"enter your amount "<<endl;
+            cin>>withdraw;
+            if(withdraw>balance)
+            {
+                cout<<"Sorry you can't withdraw this amount"<<endl;
+            }
+            else
+            {
+                balance-=withdraw;
+            cout<<"Now : your balance is "<<balance<<endl; 
+            }
+            break;
+            case 3:
+            cout<<"your current  balance is "<<balance<<endl;
+            cout<<"enter your deposit money : ";
+            cin>>deposit;
+            balance+=deposit;
+            cout<<"your new balance is "<<balance<<endl;
+            break;
+            case 4:
+            cout<<"Thank You "<<endl;
+            break;
+            
+        }
+       
+    }
+    else
+    {   char option='o';
+        cout<<"your password is incorrect, do you want to try again ? enter [Y] of yes or [N] of no"<<endl;
+        cin>>option;
+        
+        if(option=='Y'|| option=='y')
+        {
+             cout<<"enter your password :"<<endl;
+             cin>>password;
+        }
+        else
+        {
+            choice=4;
+        }
+        
+    }
+    }while(choice<4);
+}
+int main()
+{
+    show();
+    process();
+   
+    return 0;
+}
